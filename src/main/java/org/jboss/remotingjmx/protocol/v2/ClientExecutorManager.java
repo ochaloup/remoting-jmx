@@ -47,7 +47,7 @@ class ClientExecutorManager {
         if (environment != null && environment.containsKey(Executor.class.getName())) {
             executor = (Executor) environment.get(Executor.class.getName());
         } else {
-            executor = Executors.newCachedThreadPool(new ThreadFactory() {
+            executor = Executors.newFixedThreadPool(1000, new ThreadFactory() {
 
                 final ThreadGroup group = new ThreadGroup(REMOTING_JMX);
 
